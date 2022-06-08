@@ -64,11 +64,32 @@ class ViewController: UIViewController {
         Manager.shared.minusSidr()
         self.countSidr.text = ("\(Manager.shared.countSidr)")
         
-        // дописать в менеджере функцию селбаттон, там обнулить все каунты и изменить остатки, в экшене на кнопку селл поставить вывод текста на дисплей аутпут и потом вызвать функцию селлбаттон из мнеджера
-        // Попробовать закомитить на гитхаб
     }
     
+    @IBAction func sellButtonPressed(_ sender: UIButton) {
+        
+        Manager.shared.totalSumSelFunc()
+        
+        self.displayOutput.text = "Staropramen  \(Manager.shared.countStaropramen) bottle (*\(Manager.shared.staropramen.price)$), Bud \(Manager.shared.countBud) bottle (*\(Manager.shared.bud.price)$), Sidr \(Manager.shared.countSidr) bottle (*\(Manager.shared.sidr.price)$), Total: \(Manager.shared.totalSumSel)$"
+        
+        self.countStaropramen.text = "0"
+        self.countBud.text = "0"
+        self.countSidr.text = "0"
+        
+        Manager.shared.selButtonPressed()
+    }
     
+    @IBAction func startDayButtonPressed(_ sender: UIButton) {
+        self.displayOutput.text = ""
+        Manager.shared.startDayButtonPressed()
+        
+    }
     
+    @IBAction func endDayButtonPressed(_ sender: UIButton) {
+        self.displayOutput.text = " Profit per Day =  \(Manager.shared.profit)$"
+    }
+    
+    // при нажатии на плюс после сел, счетчик не сбрасывается
+    // проверить изменение остатка при нажатии енд и стар дей
 }
 

@@ -26,6 +26,9 @@ class Manager {
     //  сумма за день проданных
     var profit: Double = 0
     
+    //сумма за текущую продажу
+    var totalSumSel: Double = 0
+    
     // меню пива
     let staropramen = Beer(name: "Staropramen", price: 2)
     let bud = Beer(name: "Bud", price: 1.8)
@@ -81,6 +84,30 @@ class Manager {
         }
         countSidr -= 1
         remainderSidr += 1
+    }
+    
+    func totalSumSelFunc(){
+        self.totalSumSel = Double(countStaropramen) * staropramen.price + Double(countBud) * bud.price + Double(countSidr) * sidr.price
+    }
+    
+    func selButtonPressed(){
+        // обнуляем счетики плючов минусов
+        self.countStaropramen = 0
+        self.countBud = 0
+        self.countSidr = 0
+        
+        self.profit += totalSumSel
+        self.totalSumSel = 0
+        
+    }
+    
+    func startDayButtonPressed(){
+        
+        self.profit = 0
+        self.remainderStaropramen = 100
+        self.remainderBud = 100
+        self.remainderSidr = 100
+        
     }
     
     
