@@ -99,6 +99,8 @@ class Manager {
         self.profit += totalSumSel
         self.totalSumSel = 0
         
+        // для комита
+        
     }
     
     func startDayButtonPressed(){
