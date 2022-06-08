@@ -89,7 +89,6 @@ class ViewController: UIViewController {
         self.displayOutput.text = " Profit per Day =  \(Manager.shared.profit)$"
     }
     
-    // при нажатии на плюс после сел, счетчик не сбрасывается
-    // проверить изменение остатка при нажатии енд и стар дей
+    // Done
 }
 
